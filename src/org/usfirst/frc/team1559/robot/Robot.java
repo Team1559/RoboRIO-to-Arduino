@@ -48,6 +48,15 @@ public class Robot extends IterativeRobot {
     	else if (joy.getRawButton(3)){
     		arduino.Write(3);
     	}
+    	else if (joy.getRawButton(4)){
+    		arduino.Write(4);
+    	}
+    	else if(joy.getRawButton(5)){
+    		arduino.Write(5);
+    	}
+    	else if(joy.getRawButton(6)){
+    		arduino.Write(6);
+    	}
     	else {
     		arduino.Write(0);
     	}

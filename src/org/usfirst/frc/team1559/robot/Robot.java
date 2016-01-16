@@ -3,6 +3,7 @@ package org.usfirst.frc.team1559.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Timer;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -17,9 +18,11 @@ public class Robot extends IterativeRobot {
      */
 	Joystick joy;
 	Arduino arduino;
+	Timer timey;
     public void robotInit() {
     	joy = new Joystick(0);
-    	arduino = new Arduino(0,1,2);
+    	arduino = new Arduino(4);
+    	timey = new Timer();
     }
 
     /**
@@ -39,27 +42,8 @@ public class Robot extends IterativeRobot {
 
     }
     public void teleopPeriodic() {
-    	if (joy.getRawButton(1)){
-    		arduino.Write(1);
-    	}
-    	else if (joy.getRawButton(2)){
-    		arduino.Write(2);
-    	}
-    	else if (joy.getRawButton(3)){
-    		arduino.Write(3);
-    	}
-    	else if (joy.getRawButton(4)){
-    		arduino.Write(4);
-    	}
-    	else if(joy.getRawButton(5)){
-    		arduino.Write(5);
-    	}
-    	else if(joy.getRawButton(6)){
-    		arduino.Write(6);
-    	}
-    	else {
-    		arduino.Write(0);
-    	}
+    	arduino.Write(1,2,3);
+    	timey.delay(.5);
     }
     
     /**
